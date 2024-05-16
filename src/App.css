@@ -18,10 +18,13 @@ canvas {
 }
 
 .newPostCard {
-
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f3f4f6; /* Background color */
+  padding: 20px; /* Padding around the card */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
 }
 
 .addPost {
@@ -56,6 +59,7 @@ label {
 .postForm {
   display: flex;
   flex-direction: column;
+  padding: 5px;
 }
 
 .avatar {
@@ -125,6 +129,46 @@ button {
 
 .name {
   font-weight: bold;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 1000; /* Higher z-index to overlay everything */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialogue {
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  z-index: 1001; /* Higher z-index than the background */
+}
+.uploadButton {
+  padding: 8px 12px; /* Add padding */
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 14px;
+  border: 3px solid transparent; 
+  background-color: teal; /* Green background color */
+  color: white; /* White text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer;
+  /* Add transition */
+}
+
+/* Hover effect for the upload button */
+.uploadButton:hover {
+  
+  border-color: rgba(72, 255, 0, 0.5) ;/* Darker green on hover */
+  transform: scale(1.05); /* Scale the button slightly on hover */
 }
 
 /* Media query for smaller screens */
