@@ -50,26 +50,12 @@ function App() {
             <div className="postForm">
               <input
                 type="text"
-                placeholder="What's on your mind?"
+                placeholder="Upload an Image !!"
                 className="postInput"
               />
-              <label htmlFor="file">
-                <svg
-                  className="icon h-12 w-12 text-blue-700 border-blue-700 hover:bg-blue-700 ease-in duration-300 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-md p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500"
-                  fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-                <img
-                  className="addImg"
-                  src="https://icon-library.com/images/maps-icon-png/maps-icon-png-5.jpg"
-                  alt=""
-                />
-                <img
-                  className="addImg"
-                  src="https://d29fhpw069ctt2.cloudfront.net/icon/image/84451/preview.svg"
-                  alt=""
-                />
-                <button>Send</button>
+              <label htmlFor="file" className=" uploadButton " >Upload 
+                
+                
               </label>
               <input
                 onChange={(e) => setFile(e.target.files[0])}

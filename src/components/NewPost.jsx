@@ -5,6 +5,7 @@ const NewPost = ({ image, onUploadNew }) => {
   const { url, width, height } = image;
   const [faces, setFaces] = useState([]);
   const [friends, setFriends] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const imgRef = useRef();
   const canvasRef = useRef();
@@ -15,6 +16,9 @@ const NewPost = ({ image, onUploadNew }) => {
       new faceapi.TinyFaceDetectorOptions()
     );
     setFaces(detections.map((d) => Object.values(d.box)));
+    if (detections.length === 0) {
+      setShowModal(true); // Show modal if no faces detected
+    }
   };
 
   const enter = () => {
@@ -46,6 +50,10 @@ const NewPost = ({ image, onUploadNew }) => {
     setFriends((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="container">
       <div className="left" style={{ width: 500, height: 500, border: "2px solid #ccc", boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)", borderRadius: "5px" }}>
@@ -63,6 +71,7 @@ const NewPost = ({ image, onUploadNew }) => {
           height={height}
           style={{ position: "absolute", top: 0, left: 0 }}
         />
+        
         {faces.map((face, i) => (
           <input
             name={`input${i}`}
@@ -108,6 +117,14 @@ const NewPost = ({ image, onUploadNew }) => {
         )}
         <button className="rightButton" onClick={onUploadNew}>Upload New</button>
       </div>
+      
+      {showModal && (
+        <div className="modal">
+          <div className="dialogue">
+            No faces detected. <button className="closeButton" onClick={handleCloseModal}>X</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
